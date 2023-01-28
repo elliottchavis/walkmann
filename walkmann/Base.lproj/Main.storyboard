@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="391.60305343511448" y="5.6338028169014089"/>
         </scene>
-        <!--View Controller-->
+        <!--Weekly Controller-->
         <scene sceneID="Q88-pN-uPp">
             <objects>
-                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" customClass="WeeklyController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uB8-WY-Ewd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
