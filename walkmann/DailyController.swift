@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeeklyController: UIViewController {
+class DailyController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

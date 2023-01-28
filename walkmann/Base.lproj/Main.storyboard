@@ -139,6 +139,7 @@
                         <outlet property="distanceDataLabel" destination="G00-bt-g3a" id="wzX-Gf-SCS"/>
                         <outlet property="moveDataLabel" destination="2mZ-UF-s64" id="grq-0X-O8v"/>
                         <outlet property="stepsDataLabel" destination="nvg-KA-cXc" id="ep5-KD-Dky"/>
+                        <outlet property="walkmanImage" destination="NBt-OQ-dbK" id="cPc-Ca-TpQ"/>
                         <segue destination="3X7-pz-QTc" kind="show" identifier="Activity" id="cyu-MR-oVL"/>
                     </connections>
                 </viewController>
@@ -146,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="391.60305343511448" y="5.6338028169014089"/>
         </scene>
-        <!--Weekly Controller-->
+        <!--Daily Controller-->
         <scene sceneID="Q88-pN-uPp">
             <objects>
-                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" customClass="WeeklyController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" customClass="DailyController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uB8-WY-Ewd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2V-tV-l0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220.6106870229007" y="10.563380281690142"/>
+            <point key="canvasLocation" x="1234" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="skR-v3-ORy">

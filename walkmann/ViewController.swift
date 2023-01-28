@@ -17,26 +17,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepsDataLabel: UILabel!
     @IBOutlet weak var distanceDataLabel: UILabel!
     
+    @IBOutlet weak var walkmanImage: UIImageView!
+    
     let healthStore = HKHealthStore()
+    let shape = CAShapeLayer()
+
     
     
     // MARK: - LifeCycle
     
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gesture = UITapGestureRecognizer()
-        gesture.numberOfTapsRequired = 1
-        self.activityBoardLabel.isUserInteractionEnabled = true
-        self.activityBoardLabel.addGestureRecognizer(gesture)
-        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
-        
-                
+        configureGesture()
         configureUI()
         healthAuth()
         
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configureActivityRing()
+
     }
     
     // MARK: - Actions
@@ -44,6 +48,8 @@ class ViewController: UIViewController {
     
     @objc func tapGesture(_ gesture: UITapGestureRecognizer) {
         print("touch")
+        shape.removeFromSuperlayer()
+
         performSegue(withIdentifier: "Activity", sender: self)
     }
     
@@ -54,6 +60,25 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         activityBoardLabel?.layer.masksToBounds = true
         activityBoardLabel?.layer.cornerRadius = 15
+        
+        
+    }
+    
+    func configureActivityRing() {
+        let circlePath = UIBezierPath(arcCenter: walkmanImage.center, radius: 76, startAngle: 0, endAngle: .pi, clockwise: true)
+        shape.path = circlePath.cgPath
+        shape.lineWidth = 20
+        shape.strokeColor =  UIColor.systemOrange.cgColor
+        view.layer.addSublayer(shape)
+        
+    }
+    
+    func configureGesture() {
+        let gesture = UITapGestureRecognizer()
+        gesture.numberOfTapsRequired = 1
+        self.activityBoardLabel.isUserInteractionEnabled = true
+        self.activityBoardLabel.addGestureRecognizer(gesture)
+        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
     }
     
     func healthAuth() {
@@ -243,7 +268,7 @@ class ViewController: UIViewController {
     
     
     
-    
+
 
 
 }
