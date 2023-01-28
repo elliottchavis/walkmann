@@ -22,12 +22,29 @@ class ViewController: UIViewController {
     
     // MARK: - LifeCycle
     
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gesture = UITapGestureRecognizer()
+        gesture.numberOfTapsRequired = 1
+        self.activityBoardLabel.isUserInteractionEnabled = true
+        self.activityBoardLabel.addGestureRecognizer(gesture)
+        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
+        
                 
         configureUI()
         healthAuth()
         
+    }
+    
+    // MARK: - Actions
+    
+    
+    @objc func tapGesture(_ gesture: UITapGestureRecognizer) {
+        print("touch")
+        performSegue(withIdentifier: "Activity", sender: self)
     }
     
     
