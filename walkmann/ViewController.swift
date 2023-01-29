@@ -17,25 +17,42 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepsDataLabel: UILabel!
     @IBOutlet weak var distanceDataLabel: UILabel!
     
+    @IBOutlet weak var walkmanImage: UIImageView!
+    
     let healthStore = HKHealthStore()
+    let firstCircle = CAShapeLayer()
+    let secondCircle = CAShapeLayer()
+    
+
     
     
     // MARK: - LifeCycle
     
-   
+    override func viewWillAppear(_ animated: Bool) {
+        //configureUI()
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gesture = UITapGestureRecognizer()
-        gesture.numberOfTapsRequired = 1
-        self.activityBoardLabel.isUserInteractionEnabled = true
-        self.activityBoardLabel.addGestureRecognizer(gesture)
-        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
-        
-                
+        configureNavigationBar()
+        configureGesture()
         configureUI()
         healthAuth()
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        configureActivityRing()
+
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+            //viewDidLoad()
         
     }
     
@@ -44,7 +61,13 @@ class ViewController: UIViewController {
     
     @objc func tapGesture(_ gesture: UITapGestureRecognizer) {
         print("touch")
+        //shape.removeFromSuperlayer()
+
         performSegue(withIdentifier: "Activity", sender: self)
+    }
+    
+    @objc func showProfile(){
+        print("show the profile")
     }
     
     
@@ -54,6 +77,43 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         activityBoardLabel?.layer.masksToBounds = true
         activityBoardLabel?.layer.cornerRadius = 15
+        
+        
+    }
+    
+    func configureActivityRing() {
+        
+        let bottomCirclePath = UIBezierPath(arcCenter: walkmanImage.center, radius: 76, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+        firstCircle.path = bottomCirclePath.cgPath
+        firstCircle.lineWidth = 20
+        firstCircle.strokeColor = UIColor.darkGray.cgColor
+        firstCircle.fillColor = UIColor.clear.cgColor
+        view.layer.addSublayer(firstCircle)
+        
+        let topCirclePath = UIBezierPath(arcCenter: walkmanImage.center, radius: 76, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+        secondCircle.path = topCirclePath.cgPath
+        secondCircle.lineWidth = 20
+        secondCircle.strokeColor =  UIColor.systemOrange.cgColor
+        secondCircle.fillColor = UIColor.clear.cgColor
+        secondCircle.strokeEnd = 0
+        view.layer.addSublayer(secondCircle)
+        
+        // animate second(top) circle
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.toValue = 1
+        animation.duration = 0.9
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = .forwards
+        secondCircle.add(animation, forKey: "animation")
+        
+    }
+    
+    func configureGesture() {
+        let gesture = UITapGestureRecognizer()
+        gesture.numberOfTapsRequired = 1
+        self.activityBoardLabel.isUserInteractionEnabled = true
+        self.activityBoardLabel.addGestureRecognizer(gesture)
+        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
     }
     
     func healthAuth() {
@@ -239,11 +299,32 @@ class ViewController: UIViewController {
     }
     
     
+    func configureNavigationBar() {
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = .systemBackground
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Summary"
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = true
+        
+        navigationController?.navigationBar.overrideUserInterfaceStyle = .dark
+        
+        let image = UIImage(systemName: "person.circle.fill")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(showProfile))
+
+    }
     
     
     
-    
-    
+
 
 
 }

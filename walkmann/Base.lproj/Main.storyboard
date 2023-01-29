@@ -49,9 +49,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="519/300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mZ-UF-s64">
-                                <rect key="frame" x="45" y="101" width="84" height="21"/>
+                                <rect key="frame" x="45" y="101" width="100" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="84" id="l2V-8K-fhT"/>
+                                    <constraint firstAttribute="width" constant="100" id="l2V-8K-fhT"/>
                                     <constraint firstAttribute="height" constant="21" id="wgA-S6-AkO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -101,7 +101,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_walk" translatesAutoresizingMaskIntoConstraints="NO" id="NBt-OQ-dbK">
-                                <rect key="frame" x="247" y="95" width="130" height="130"/>
+                                <rect key="frame" x="233" y="95" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="5Or-AQ-FUG"/>
                                     <constraint firstAttribute="height" constant="130" id="kT6-uS-zap"/>
@@ -121,7 +121,7 @@
                             <constraint firstItem="x4z-GP-XnG" firstAttribute="top" secondItem="2mZ-UF-s64" secondAttribute="bottom" constant="15" id="YwY-fS-tfD"/>
                             <constraint firstItem="NBt-OQ-dbK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="ZSL-Zo-86B"/>
                             <constraint firstItem="tou-IL-RzW" firstAttribute="top" secondItem="nvg-KA-cXc" secondAttribute="bottom" constant="15" id="aEi-bM-AYT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NBt-OQ-dbK" secondAttribute="trailing" constant="16" id="d4e-LA-T8d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NBt-OQ-dbK" secondAttribute="trailing" constant="30" id="d4e-LA-T8d"/>
                             <constraint firstItem="G00-bt-g3a" firstAttribute="top" secondItem="tou-IL-RzW" secondAttribute="bottom" constant="3" id="gt9-ug-Yen"/>
                             <constraint firstItem="tou-IL-RzW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="hSr-De-ZGQ"/>
                             <constraint firstItem="Vy5-lB-zLF" firstAttribute="top" secondItem="zYn-GA-wl4" secondAttribute="bottom" constant="33" id="jN5-46-Vst"/>
@@ -139,6 +139,7 @@
                         <outlet property="distanceDataLabel" destination="G00-bt-g3a" id="wzX-Gf-SCS"/>
                         <outlet property="moveDataLabel" destination="2mZ-UF-s64" id="grq-0X-O8v"/>
                         <outlet property="stepsDataLabel" destination="nvg-KA-cXc" id="ep5-KD-Dky"/>
+                        <outlet property="walkmanImage" destination="NBt-OQ-dbK" id="cPc-Ca-TpQ"/>
                         <segue destination="3X7-pz-QTc" kind="show" identifier="Activity" id="cyu-MR-oVL"/>
                     </connections>
                 </viewController>
@@ -146,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="391.60305343511448" y="5.6338028169014089"/>
         </scene>
-        <!--Weekly Controller-->
+        <!--Daily Controller-->
         <scene sceneID="Q88-pN-uPp">
             <objects>
-                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" customClass="WeeklyController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Activity" id="3X7-pz-QTc" customClass="DailyController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uB8-WY-Ewd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2V-tV-l0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220.6106870229007" y="10.563380281690142"/>
+            <point key="canvasLocation" x="1234" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="skR-v3-ORy">
