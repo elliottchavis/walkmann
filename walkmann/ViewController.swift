@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     // MARK: - LifeCycle
     
     override func viewWillAppear(_ animated: Bool) {
-        //configureUI()
     }
     
 
@@ -40,7 +39,6 @@ class ViewController: UIViewController {
         configureGesture()
         configureUI()
         healthAuth()
-        
         
     }
     
@@ -53,11 +51,9 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
             //viewDidLoad()
-        
     }
     
     // MARK: - Actions
-    
     
     @objc func tapGesture(_ gesture: UITapGestureRecognizer) {
         print("touch")
@@ -77,7 +73,6 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         activityBoardLabel?.layer.masksToBounds = true
         activityBoardLabel?.layer.cornerRadius = 15
-        
         
     }
     
