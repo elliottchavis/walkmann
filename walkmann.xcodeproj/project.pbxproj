@@ -16,6 +16,7 @@
 		A5415E012982C24300011B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5415DFF2982C24300011B05 /* LaunchScreen.storyboard */; };
 		A5415E0A29856EE400011B05 /* DailyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5415E0929856EE400011B05 /* DailyController.swift */; };
 		A5415E0C29857B4600011B05 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5415E0B29857B4600011B05 /* Extensions.swift */; };
+		A5D601BC298D342300FEE336 /* GoalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D601BB298D342300FEE336 /* GoalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A5415E082982E2D500011B05 /* walkmann.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkmann.entitlements; sourceTree = "<group>"; };
 		A5415E0929856EE400011B05 /* DailyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyController.swift; sourceTree = "<group>"; };
 		A5415E0B29857B4600011B05 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A5D601BB298D342300FEE336 /* GoalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A5415DF32982C24200011B05 /* SceneDelegate.swift */,
 				A5415DF52982C24200011B05 /* ViewController.swift */,
 				A5415E0929856EE400011B05 /* DailyController.swift */,
+				A5D601BB298D342300FEE336 /* GoalController.swift */,
 				A5415E0B29857B4600011B05 /* Extensions.swift */,
 				A5415DF72982C24200011B05 /* Main.storyboard */,
 				A5415DFD2982C24300011B05 /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 			files = (
 				A5415DF62982C24200011B05 /* ViewController.swift in Sources */,
 				A5415E0C29857B4600011B05 /* Extensions.swift in Sources */,
+				A5D601BC298D342300FEE336 /* GoalController.swift in Sources */,
 				A5415E0A29856EE400011B05 /* DailyController.swift in Sources */,
 				A5415DF22982C24200011B05 /* AppDelegate.swift in Sources */,
 				A5415DFC2982C24200011B05 /* walkmann.xcdatamodeld in Sources */,

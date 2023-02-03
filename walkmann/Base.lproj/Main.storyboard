@@ -154,18 +154,73 @@
                     <view key="view" contentMode="scaleToFill" id="uB8-WY-Ewd">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Move Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-3q-WLc">
+                                <rect key="frame" x="16" y="584" width="361" height="50"/>
+                                <color key="backgroundColor" red="0.19607841970000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jr0-PX-4mQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="HQG-ZI-ej3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HQG-ZI-ej3" firstAttribute="trailing" secondItem="Yn2-3q-WLc" secondAttribute="trailing" constant="16" id="Dfi-iT-kdH"/>
+                            <constraint firstItem="Yn2-3q-WLc" firstAttribute="leading" secondItem="HQG-ZI-ej3" secondAttribute="leading" constant="16" id="csz-dl-mi6"/>
+                            <constraint firstItem="HQG-ZI-ej3" firstAttribute="bottom" secondItem="Yn2-3q-WLc" secondAttribute="bottom" constant="29" id="voj-9d-IBb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="76Z-ev-TDK">
                         <barButtonItem key="backBarButtonItem" title="Back" id="fyG-Di-ZXN">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="changeGoalLabel" destination="Yn2-3q-WLc" id="Cph-Qp-cDB"/>
+                        <segue destination="0Kt-vJ-Jj0" kind="popoverPresentation" identifier="goalSegue" popoverAnchorView="uB8-WY-Ewd" id="xPj-zD-NQX">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2V-tV-l0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="6"/>
+            <point key="canvasLocation" x="1262" y="-10"/>
+        </scene>
+        <!--Goal Controller-->
+        <scene sceneID="dF4-zW-UDt">
+            <objects>
+                <viewController id="0Kt-vJ-Jj0" customClass="GoalController" customModule="walkmann" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.84999999999999998" contentMode="scaleToFill" id="HB8-bd-pMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Daily Move Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyQ-uq-dc0">
+                                <rect key="frame" x="16" y="199" width="361" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VUX-cr-SMq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Vvf-Vw-EJA"/>
+                        <color key="backgroundColor" red="0.16615657219999999" green="0.16615657219999999" blue="0.16615657219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Vvf-Vw-EJA" firstAttribute="trailing" secondItem="SyQ-uq-dc0" secondAttribute="trailing" constant="16" id="B06-JO-Znr"/>
+                            <constraint firstItem="SyQ-uq-dc0" firstAttribute="top" secondItem="Vvf-Vw-EJA" secondAttribute="top" constant="140" id="CrK-x2-zTJ"/>
+                            <constraint firstItem="SyQ-uq-dc0" firstAttribute="leading" secondItem="Vvf-Vw-EJA" secondAttribute="leading" constant="16" id="z6S-rQ-Wf2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xuk-d4-kGx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r2o-Rk-Lvs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2116.7938931297708" y="-10.563380281690142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="skR-v3-ORy">

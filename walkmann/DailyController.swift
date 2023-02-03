@@ -7,11 +7,51 @@
 
 import UIKit
 
+
 class DailyController: UIViewController {
+    
+    
+    @IBOutlet weak var changeGoalLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
+        configureUI()
+        configureGesture()
+        
+    }
+    
+    // MARK: - Actions
+    
+    @objc func tapGesture(_ gesture: UITapGestureRecognizer) {
+        print("touch")
+        //shape.removeFromSuperlayer()
+
+        performSegue(withIdentifier: "goalSegue", sender: self)
+        
+//        let nav = GoalController()
+//        nav.modalPresentationStyle = .popover
+//        navigationController?.pushViewController(nav, animated: true)
+
+        //self.present(nav, animated: false, completion: nil)
+    }
+    
+    // MARK: - Functions
+    
+    func configureUI() {
+        view.backgroundColor = .black
+        changeGoalLabel?.layer.masksToBounds = true
+        changeGoalLabel?.layer.cornerRadius = 10
+        
+    }
+    
+    func configureGesture() {
+        let gesture = UITapGestureRecognizer()
+        gesture.numberOfTapsRequired = 1
+        self.changeGoalLabel?.isUserInteractionEnabled = true
+        self.changeGoalLabel?.addGestureRecognizer(gesture)
+        gesture.addTarget(self, action: #selector(tapGesture(_ :)))
     }
     
     func configureNavigationBar() {
