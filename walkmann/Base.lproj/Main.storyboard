@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Move Goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn2-3q-WLc">
-                                <rect key="frame" x="16" y="584" width="361" height="50"/>
+                                <rect key="frame" x="16" y="583" width="361" height="50"/>
                                 <color key="backgroundColor" red="0.19607841970000001" green="0.19607841970000001" blue="0.19607841970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jr0-PX-4mQ"/>
@@ -171,7 +171,7 @@
                         <constraints>
                             <constraint firstItem="HQG-ZI-ej3" firstAttribute="trailing" secondItem="Yn2-3q-WLc" secondAttribute="trailing" constant="16" id="Dfi-iT-kdH"/>
                             <constraint firstItem="Yn2-3q-WLc" firstAttribute="leading" secondItem="HQG-ZI-ej3" secondAttribute="leading" constant="16" id="csz-dl-mi6"/>
-                            <constraint firstItem="HQG-ZI-ej3" firstAttribute="bottom" secondItem="Yn2-3q-WLc" secondAttribute="bottom" constant="29" id="voj-9d-IBb"/>
+                            <constraint firstItem="HQG-ZI-ej3" firstAttribute="bottom" secondItem="Yn2-3q-WLc" secondAttribute="bottom" constant="30" id="voj-9d-IBb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="76Z-ev-TDK">
@@ -207,15 +207,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-aW-qGG">
-                                <rect key="frame" x="96" y="271" width="202" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="u6F-EB-0qP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="90"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stepper opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" maximumValue="10000" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="GNH-1p-U6T">
                                 <rect key="frame" x="146.66666666666666" y="479" width="100" height="35"/>
                                 <constraints>
@@ -226,6 +217,29 @@
                                     <action selector="stepperPressed:" destination="0Kt-vJ-Jj0" eventType="valueChanged" id="2pl-u5-dy8"/>
                                 </connections>
                             </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-aW-qGG">
+                                <rect key="frame" x="96" y="271" width="202" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="u6F-EB-0qP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="90"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9N-1z-2I7">
+                                <rect key="frame" x="16.666666666666657" y="703" width="360" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pxr-ZQ-pyA"/>
+                                    <constraint firstAttribute="width" constant="360" id="Wlg-Qv-Pz7"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Move Goal"/>
+                                <connections>
+                                    <action selector="changeGoalPressed:" destination="0Kt-vJ-Jj0" eventType="touchUpInside" id="cky-qy-C3w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vvf-Vw-EJA"/>
                         <color key="backgroundColor" red="0.16615657219999999" green="0.16615657219999999" blue="0.16615657219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -236,13 +250,16 @@
                             <constraint firstItem="GNH-1p-U6T" firstAttribute="top" secondItem="GaD-aW-qGG" secondAttribute="bottom" constant="8" symbolic="YES" id="GiK-De-ecF"/>
                             <constraint firstItem="GNH-1p-U6T" firstAttribute="top" secondItem="GaD-aW-qGG" secondAttribute="bottom" constant="8" symbolic="YES" id="Zmy-0C-DuH"/>
                             <constraint firstItem="Vvf-Vw-EJA" firstAttribute="trailing" secondItem="GaD-aW-qGG" secondAttribute="trailing" constant="95" id="bmF-zE-m5n"/>
+                            <constraint firstItem="Vvf-Vw-EJA" firstAttribute="bottom" secondItem="g9N-1z-2I7" secondAttribute="bottom" constant="30" id="hCd-9I-m2s"/>
                             <constraint firstItem="GNH-1p-U6T" firstAttribute="centerX" secondItem="HB8-bd-pMJ" secondAttribute="centerX" id="i10-DB-Wg1"/>
                             <constraint firstItem="GaD-aW-qGG" firstAttribute="leading" secondItem="Vvf-Vw-EJA" secondAttribute="leading" constant="96" id="vAW-6I-Kfe"/>
                             <constraint firstItem="SyQ-uq-dc0" firstAttribute="leading" secondItem="Vvf-Vw-EJA" secondAttribute="leading" constant="16" id="z6S-rQ-Wf2"/>
+                            <constraint firstItem="g9N-1z-2I7" firstAttribute="centerX" secondItem="HB8-bd-pMJ" secondAttribute="centerX" id="zcv-cm-HC7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xuk-d4-kGx"/>
                     <connections>
+                        <outlet property="changeGoalBtn" destination="g9N-1z-2I7" id="Spk-6V-CDT"/>
                         <outlet property="countLabel" destination="GaD-aW-qGG" id="Mt1-1D-7ib"/>
                         <outlet property="stepper" destination="GNH-1p-U6T" id="V2r-yC-k7N"/>
                     </connections>
