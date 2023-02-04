@@ -17,11 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var stepsDataLabel: UILabel!
     @IBOutlet weak var distanceDataLabel: UILabel!
     
+    @IBOutlet weak var goalDataLabel: UILabel!
     @IBOutlet weak var walkmanImage: UIImageView!
     
     let healthStore = HKHealthStore()
     let firstCircle = CAShapeLayer()
     let secondCircle = CAShapeLayer()
+    
+    let userDefaults = UserDefaults.standard
+
     
 
     
@@ -29,6 +33,17 @@ class ViewController: UIViewController {
     // MARK: - LifeCycle
     
     override func viewWillAppear(_ animated: Bool) {
+        if self.userDefaults.object(forKey: "newGoal") != nil {
+            let goalValue = userDefaults.object(forKey: "newGoal")
+            var stringValue = goalValue as! String
+            self.goalDataLabel.text = "\(stringValue)"
+            
+            
+            
+            var rect: CGRect = self.moveDataLabel.frame
+            rect.size = (self.moveDataLabel.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.moveDataLabel.font.fontName , size: self.moveDataLabel.font.pointSize)!]))!
+            self.moveDataLabel.frame = rect
+        }
     }
     
 
@@ -50,7 +65,6 @@ class ViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-            //viewDidLoad()
     }
     
     // MARK: - Actions
@@ -73,6 +87,11 @@ class ViewController: UIViewController {
         view.backgroundColor = .black
         activityBoardLabel?.layer.masksToBounds = true
         activityBoardLabel?.layer.cornerRadius = 15
+        
+        var rect: CGRect = self.moveDataLabel.frame
+        rect.size = (self.moveDataLabel.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.moveDataLabel.font.fontName , size: self.moveDataLabel.font.pointSize)!]))!
+        self.moveDataLabel.frame = rect
+        
         
     }
     
@@ -139,7 +158,23 @@ class ViewController: UIViewController {
                 self.getCalories { (result) in
                     DispatchQueue.main.async {
                         let caloricCount = String(Int(result))
-                        self.moveDataLabel.text = "\(caloricCount)/300cal"
+                        
+                         // Read/Get Boolean from User Defaults
+                        if self.userDefaults.object(forKey: "newGoal") == nil {
+                            self.moveDataLabel.text = "\(caloricCount)/"
+                        } else {
+                            let goalValue = self.userDefaults.object(forKey: "newGoal")
+                            
+                            var stringValue = goalValue as! String
+                            self.moveDataLabel.text = "\(caloricCount)/"
+                            var rect: CGRect = self.moveDataLabel.frame
+                            rect.size = (self.moveDataLabel.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.moveDataLabel.font.fontName , size: self.moveDataLabel.font.pointSize)!]))!
+                            self.moveDataLabel.frame = rect
+                            
+                            
+                            self.goalDataLabel.text = "\(stringValue)"
+
+                        }
                     }
                 }
             }
