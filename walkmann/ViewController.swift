@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     let secondCircle = CAShapeLayer()
     
     let userDefaults = UserDefaults.standard
+    
+    var ringPercentage: Float = 0.00
 
     
 
@@ -43,6 +45,9 @@ class ViewController: UIViewController {
             var rect: CGRect = self.moveDataLabel.frame
             rect.size = (self.moveDataLabel.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.moveDataLabel.font.fontName , size: self.moveDataLabel.font.pointSize)!]))!
             self.moveDataLabel.frame = rect
+            
+            healthAuth()
+
         }
     }
     
@@ -53,7 +58,7 @@ class ViewController: UIViewController {
         configureNavigationBar()
         configureGesture()
         configureUI()
-        healthAuth()
+        //healthAuth()
         
     }
     
@@ -104,12 +109,13 @@ class ViewController: UIViewController {
         firstCircle.fillColor = UIColor.clear.cgColor
         view.layer.addSublayer(firstCircle)
         
-        let topCirclePath = UIBezierPath(arcCenter: walkmanImage.center, radius: 76, startAngle: 0, endAngle: .pi * 2, clockwise: true)
+        let topCirclePath = UIBezierPath(arcCenter: walkmanImage.center, radius: 76, startAngle: 0, endAngle: (.pi * 2) * CGFloat(ringPercentage), clockwise: true)
         secondCircle.path = topCirclePath.cgPath
         secondCircle.lineWidth = 20
         secondCircle.strokeColor =  UIColor.systemOrange.cgColor
         secondCircle.fillColor = UIColor.clear.cgColor
         secondCircle.strokeEnd = 0
+        secondCircle.cornerRadius = 10
         view.layer.addSublayer(secondCircle)
         
         // animate second(top) circle
@@ -150,7 +156,6 @@ class ViewController: UIViewController {
                     DispatchQueue.main.async {
                         let finalResult = result * 0.000189394
                         let distanceCount = String(format: "%.2f", finalResult)
-                        print(distanceCount)
                         self.distanceDataLabel.text = "\(distanceCount) miles"
                     }
                 }
@@ -162,10 +167,16 @@ class ViewController: UIViewController {
                          // Read/Get Boolean from User Defaults
                         if self.userDefaults.object(forKey: "newGoal") == nil {
                             self.moveDataLabel.text = "\(caloricCount)/"
-                        } else {
-                            let goalValue = self.userDefaults.object(forKey: "newGoal")
                             
-                            var stringValue = goalValue as! String
+                            var calGoal: Float = 100.00
+                            var calAchieved = Float(result)
+                            var percentage = calAchieved / calGoal
+                            print(" Percetage of goal: \(percentage)")
+                            self.ringPercentage = percentage
+                        } else {
+                            var goalValue = self.userDefaults.object(forKey: "newGoal")
+                            
+                            let stringValue = goalValue as! String
                             self.moveDataLabel.text = "\(caloricCount)/"
                             var rect: CGRect = self.moveDataLabel.frame
                             rect.size = (self.moveDataLabel.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: self.moveDataLabel.font.fontName , size: self.moveDataLabel.font.pointSize)!]))!
@@ -173,6 +184,12 @@ class ViewController: UIViewController {
                             
                             
                             self.goalDataLabel.text = "\(stringValue)"
+                            
+                            var calGoal = Float(stringValue)
+                            var calAchieved = Float(result)
+                            var percentage = calAchieved / calGoal!
+                            print(" Percetage of goal: \(percentage)")
+                            self.ringPercentage = percentage
 
                         }
                     }
