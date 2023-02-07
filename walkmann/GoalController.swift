@@ -67,7 +67,6 @@ class GoalController: UIViewController {
             
             var doubleValue = Double(stringValue)
             stepper.value = doubleValue!
-            
         }
         
         changeGoalBtn.layer.cornerRadius = 10
